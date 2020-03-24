@@ -1,0 +1,124 @@
+\documentclass{article} % For LaTeX2e
+% SIAM Article Template
+%\documentclass[review,onefignum,onetabnum]{siamonline190516}
+
+\usepackage{pgf}
+\usepackage{tikz}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+
+\usepackage{graphicx}
+\usepackage{theorem,ifthen,algorithm,algorithmic}
+\usepackage{amssymb,amsmath,latexsym,dsfont}
+%\usepackage{tikz,pgflibraryplotmarks}
+\usepackage{mathrsfs}
+%\usepackage{fullpage}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{fullpage}
+
+
+% Optional math commands from https://github.com/goodfeli/dlbook_notation.
+%\input{math_commands.tex}
+
+
+\title{Take home midterm - 213  }
+
+\author{Eldad Haber\\
+Department of EOAS\\
+The University of British Columbia\\
+Vancouver, BC V6T1Z4, Canada \\
+\texttt{ehaber@eoas.ubc.ca} 
+}
+
+
+\newcommand{\fix}{\marginpar{FIX}}
+\newcommand{\new}{\marginpar{NEW}}
+
+%\iclrfinalcopy % Uncomment for camera-ready version, but NOT for submission.
+\begin{document}
+
+
+\maketitle
+
+
+\begin{abstract}
+This midterm is a take home - use whatever it takes to solve it. Its not going to be easy!
+
+
+When you are done, scan the test and send it directly to Brian. typed answers are better.
+\end{abstract}
+
+\section{Numerical ODE stability}	
+
+The Forward Euler method for the solution of an ODE of the form
+$$ \dot{y} = f(y)$$
+reads
+$$ y_{j+1} = y_j + hf(y_j). $$
+To analyze the stability of the forward Euler method we used the test equation
+$$ \dot{y} = \lambda y $$
+and wrote the method for the problem as
+$$ y_{j+1} = (1 + \lambda h) y_j $$
+We then explored for what values of $\lambda h$ the method is stable.
+
+We also explored the backward Euler 
+$$ y_{j+1} = y_j + hf(y_{j+1}). $$
+and discussed stability for it, which lead to (when applied to the test equation).
+$$ y_{j+1} = (1-h\lambda)^{-1} y_j $$
+
+\bigskip
+
+The fractional $\theta$ method reads
+$$ y_{j+1} = y_j + h\left(\theta f(y_{j+1}) + (1-\theta) f(y_{j}) \right). $$
+For $\theta=0$ we obtain the forward Euler method and for $\theta=1$ we obtain
+the backward Euler.
+Analyze the stability of the method.
+
+\newpage 
+.
+
+\newpage
+
+\section{Match the method to the numerical solution of the ODE}
+
+Assume that you can use three ODE solvers, the forward Euler, the backward Euler and
+the midpoint method. Which one should you use for the system of ODE's (and why)
+$ \dot{y} = Ay$ where $A$ is 
+\begin{enumerate}
+\item $ \begin{pmatrix} -2 & 1 \\ 1 & -2 \end{pmatrix} $
+\item $ \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix} $
+\item $ \begin{pmatrix} -10^3 & 1 \\ 1 & -10^-3 \end{pmatrix} $
+\end{enumerate}
+
+
+\newpage
+
+.
+
+\newpage
+
+\section{Fluxes}
+
+The curl of a 3D field is defined by
+$$ \nabla \times {\vec J} = \begin{pmatrix}
+0 & \partial_z & - \partial_y \\
+-\partial_z &  0 & \partial_x \\
+\partial_y &  - \partial_x & 0 \\
+\end{pmatrix} \begin{pmatrix} j_x \\ j_y \\ j_z \end{pmatrix}. $$
+
+\begin{itemize}
+\item Show that $ \nabla \times  (\nabla \rho) = 0$
+\item Show that $\nabla \cdot (\nabla \times  \vec J) = 0$
+\item Show that $\nabla \times\nabla \times \vec J - \nabla \nabla \cdot \vec J = - \nabla^2 \vec J$
+where  $\nabla^2 \vec J = [ \nabla^2 j_x ,  \nabla^2 j_y,  \nabla^2 j_z]$.
+\end{itemize} 
+
+ \newpage
+
+. 
+\end{document}
